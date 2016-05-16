@@ -1,0 +1,5 @@
+--recursive
+--reporter spec
+--compilers js:babel-register
+--require ./test/ignore.js
+--require ./test/setup.js
