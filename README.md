@@ -5,4 +5,8 @@
 - Redux
 - React Router
 - React Redux binding and Router binding
+- Redux Saga
+- Mocha
+- Airbnb Eslint
+- Commitizen
 - Use `.css` with PostCSS, autoprefixer, lost, etc.
