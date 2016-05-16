@@ -1,5 +1,5 @@
 {
-  "name": "MadaData",
+  "name": "madaData-webpack-starter",
   "description": "Mada Frontend",
   "main": "build/main.js",
   "authors": [
