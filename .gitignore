@@ -45,3 +45,8 @@ bower_components
 .bower-tmp
 
 dist/
+
+# Mac
+.DS_Store
+
+.nyc_output/

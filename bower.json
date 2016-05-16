@@ -1,0 +1,23 @@
+{
+  "name": "MadaData",
+  "description": "Mada Frontend",
+  "main": "build/main.js",
+  "authors": [
+    "Caiyao Mai"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "MadaData"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

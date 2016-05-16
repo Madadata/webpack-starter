@@ -1,5 +1,5 @@
 {
-  "name": "webpack-starter",
+  "name": "MadaData Webpack Starter",
   "version": "0.0.1",
   "description": "webpack starter",
   "main": "build/main.js",
@@ -7,27 +7,32 @@
     "node": ">=6.0.0"
   },
   "scripts": {
+    "commit": "git-cz",
+    "run:prod": "node server.js",
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "start": "node devServer.js",
+    "build": "npm run clean && npm run lint && npm run build:webpack",
+    "start": "./node_modules/.bin/babel-node devServer.js",
+    "coverage": "NODE_ENV=testing ./node_modules/.bin/nyc --extension .jsx mocha",
     "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=testing ./node_modules/.bin/mocha test",
+    "test:watch": "npm run test -- --watch",
+    "test:karma": "NODE_ENV=testing ./node_modules/.bin/karma start karma.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jimexist/webpack-starter.git"
+    "url": "git@github.com:Madadata/webpack-starter.git"
   },
   "keywords": [
     "webpack",
     "starter"
   ],
-  "author": "Jiayu Liu",
+  "author": "Caiyao Mai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jimexist/webpack-starter/issues"
+    "url": "https://github.com/Madadata/webpack-starter/issues"
   },
-  "homepage": "https://github.com/Jimexist/webpack-starter#readme",
+  "homepage": "https://github.com/Madadata/webpack-starter#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel": "^6.5.2",

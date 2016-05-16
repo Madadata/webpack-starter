@@ -1,16 +1,22 @@
-FROM node:6.0
-MAINTAINER Jiayu Liu <etareduce@gmail.com>
+FROM node:5.11.1
 
-RUN mkdir -p /opt/app
-WORKDIR /opt/app
+MAINTAINER Madadata <hi@madadata.com>
 
-COPY package.json /opt/app
-RUN npm install
+ENV HOME=/home/blade
+WORKDIR $HOME
 
-COPY . /opt/app
-RUN npm run build && \
-  rm -r src webpack.*.js devServer.js
+COPY package.json npm-shrinkwrap.json $HOME/
+
+RUN npm install -g bower \
+  && npm install
+
+ADD . $HOME/
+RUN bower install --allow-root \
+  && npm run build \
+  && bower cache clean --allow-root \
+  && npm uninstall -g bower \
+  && npm prune --production \
+  && npm cache clear
 
 EXPOSE 3000
-
-CMD ["node", "server/index.js"]
+CMD ["npm", "run", "run:prod"]
