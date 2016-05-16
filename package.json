@@ -1,5 +1,5 @@
 {
-  "name": "madaData-webpack-starter",
+  "name": "madadata-webpack-starter",
   "version": "0.0.1",
   "description": "webpack starter",
   "main": "build/main.js",
