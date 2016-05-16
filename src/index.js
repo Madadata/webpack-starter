@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
-import * as reducers from './reducers.js';
+import * as reducers from './ducks/reducers.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { Router, IndexRoute, Route, browserHistory } from 'react-router';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
+import createSagaMiddleware from 'redux-saga';
 import createLogger from 'redux-logger';
 
 import App from './views/App/App';
@@ -19,7 +18,8 @@ const reducer = combineReducers({
 });
 
 const logger = createLogger();
-const createStoreWithMiddleware = applyMiddleware(thunk, promise, logger)(createStore);
+const saga = createSagaMiddleware();
+const createStoreWithMiddleware = applyMiddleware(logger, saga)(createStore);
 const store = createStoreWithMiddleware(reducer);
 const history = syncHistoryWithStore(browserHistory, store);
 
